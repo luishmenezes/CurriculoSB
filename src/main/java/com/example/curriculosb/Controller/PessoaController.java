@@ -55,4 +55,10 @@ public class PessoaController {
         return pessoaRepository.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @DeleteMapping("/pessoa/{id}")
+    public ResponseEntity<Pessoa> deletarPorId(@PathVariable Long id) {
+        pessoaRepository.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
+
 }
